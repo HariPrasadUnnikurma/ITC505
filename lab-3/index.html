@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ITC505 Lab-3: Custom Font Delivery</title>
+<!-- Importing a rare custom font from Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Eater', cursive;
+line-height: 1.6;
+margin: 40px;
+background-color: #f9f9f9;
+color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.2em;
+    }
+    p {
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lab-3: Delivering a Custom Font</h1>
+
+  <article>
+    <p>
+      According to my research there are lot of methods to deliver the fonts to a browser to make a request to the server. 
+      I found the most common,easy and flexible way is to use an online font service. Here I selected <strong>Google Fonts</strong>. 
+      The files related to the fonts are hosted on Google’s servers, and I have included a reference link 
+      to fetch the font when the browser loads this page. 
+    </p>
+    <p>
+      After downloading, the browser applies this font to the text styling here, 
+      even though it is not installed on the user’s computer. This makes the code WORA (Write Once, Read Anywhere) which is the core concept of this lab work.
+The noticeable thing with this font is : it is designed to make all the characters to convert to uppercase even if it written in lower case. you can observe here that all the characters are uppercase. In the backend I have used only lower case characters.
+      This makes the code WORA (Write Once, Read Anywhere) which is the core concept of this lab work.
+    </p>
+    <p>
+      For this assignment, I selected the font <em>“Eater”</em>. 
+      I believe this font is not common,unique and rarely found on other computers. 
+    </p>
+  </article>
+
+  <footer>
+    <p>Last updated: 
+        <span id="lastModified"></span>
+    </p>
+  </footer>
+  <script type="text/javascript">
+       var x = document.lastModified;
+       document.getElementById('lastModified').textContent = x;
+  </script>
+</body>
+</html>
