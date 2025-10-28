@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jai's Temperature Converter</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Jai's Temp Converter</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Jai's Temperature Converter</h1>
+            <h1>🌡️ Temperature Converter</h1>
         </header>
-
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Profile</a></li>
             </ul>
         </nav>
-
         <main>
-            <h2>Temperature Converter</h2>
+            <h2>Convert Between Celsius, Fahrenheit, and Kelvin</h2>
             <form id="converterForm">
-                <label for="temperatureInput">Enter temperature:</label>
-                <input type="number" id="temperatureInput" required>
+                <input type="number" id="temperatureInput" placeholder="Enter temperature" required />
                 <select id="inputUnit">
                     <option value="Celsius">Celsius</option>
                     <option value="Fahrenheit">Fahrenheit</option>
@@ -40,42 +37,25 @@
             </form>
             <div id="result"></div>
         </main>
-
         <aside>
-            <a href="https://www.amazon.com/Johnson-Portable-Emergency-Assorted-Adhesive/dp/B0B41MYSGP" target="_blank">
-                <img src="img1.jpeg" width="150" height="150" alt="Advertisement">
+            <a href="https://www.amazon.com/dp/B0B41MYSGP" target="_blank">
+                <img src="img1.jpeg" alt="First Aid Kit" width="160" height="160" />
             </a>
         </aside>
-
         <footer>
             <p><strong>Addendum:</strong></p>
-            <p><strong>Problem:</strong> Creating a temperature converter in JavaScript that converts between Celsius, Fahrenheit, and Kelvin.</p>
-            <p><strong>Solution Overview:</strong></p>
-            <ul>
-                <li>Wait for DOMContentLoaded before executing script.</li>
-                <li>Retrieve form and result elements from the DOM.</li>
-                <li>Display the document’s last modified date.</li>
-                <li>Handle form submission to perform conversion.</li>
-                <li>Implement convertTemperature() with conversion formulas.</li>
-            </ul>
-
-            <p><strong>Difficulties Encountered:</strong></p>
-            <ul>
-                <li>Ensuring accuracy across different units.</li>
-                <li>Handling same-unit and invalid input cases.</li>
-            </ul>
-
-            <p><strong>Solutions:</strong></p>
-            <ul>
-                <li>Conditional checks for same-unit conversion.</li>
-                <li>Mathematical formulas for unit conversion.</li>
-                <li>parseFloat to safely read numeric input.</li>
-            </ul>
-
+            <p>
+                <strong>Problem:</strong> Build a temperature converter using JavaScript.<br/>
+                <strong>Solution:</strong> Used event listeners, DOM manipulation, and conversion logic to handle user input and display results.<br/>
+                <strong>Challenges:</strong> Ensuring accurate conversions and handling invalid input.<br/>
+                <strong>Fixes:</strong> Added input validation and rounded results for clarity.
+            </p>
             <p>Last updated: <span id="lastModified"></span></p>
         </footer>
     </div>
-
     <script src="script.js"></script>
+    <script>
+        document.getElementById('lastModified').textContent = document.lastModified;
+    </script>
 </body>
 </html>
