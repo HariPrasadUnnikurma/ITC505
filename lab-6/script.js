@@ -1,45 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById('converterForm');
-    const resultDiv = document.getElementById('result');
-    const lastModifiedSpan = document.getElementById('lastModified');
+    const form = document.getElementById("converterForm");
+    const resultDiv = document.getElementById("result");
 
-    // Display last modified date
-    lastModifiedSpan.textContent = document.lastModified;
-
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const temperature = parseFloat(document.getElementById('temperatureInput').value);
-        const inputUnit = document.getElementById('inputUnit').value;
-        const outputUnit = document.getElementById('outputUnit').value;
+        const temperature = parseFloat(document.getElementById("temperatureInput").value);
+        const inputUnit = document.getElementById("inputUnit").value;
+        const outputUnit = document.getElementById("outputUnit").value;
 
-        const convertedTemperature = convertTemperature(temperature, inputUnit, outputUnit);
-        resultDiv.textContent = `Converted Temperature: ${convertedTemperature} ${outputUnit}`;
+        if (isNaN(temperature)) {
+            resultDiv.textContent = "Please enter a valid number.";
+            return;
+        }
+
+        const converted = convertTemperature(temperature, inputUnit, outputUnit);
+        resultDiv.textContent = `Converted Temperature: ${converted.toFixed(2)} ${outputUnit}`;
     });
 
-    function convertTemperature(value, fromUnit, toUnit) {
-        if (fromUnit === toUnit) {
-            return value;
-        }
+    function convertTemperature(value, from, to) {
+        if (from === to) return value;
 
-        let tempInCelsius;
+        let celsius;
+        if (from === "Celsius") celsius = value;
+        else if (from === "Fahrenheit") celsius = (value - 32) * 5 / 9;
+        else if (from === "Kelvin") celsius = value - 273.15;
 
-        // Convert from input unit to Celsius
-        if (fromUnit === "Celsius") {
-            tempInCelsius = value;
-        } else if (fromUnit === "Fahrenheit") {
-            tempInCelsius = (value - 32) * 5 / 9;
-        } else if (fromUnit === "Kelvin") {
-            tempInCelsius = value - 273.15;
-        }
-
-        // Convert from Celsius to output unit
-        if (toUnit === "Celsius") {
-            return tempInCelsius;
-        } else if (toUnit === "Fahrenheit") {
-            return (tempInCelsius * 9 / 5) + 32;
-        } else if (toUnit === "Kelvin") {
-            return tempInCelsius + 273.15;
-        }
+        if (to === "Celsius") return celsius;
+        else if (to === "Fahrenheit") return (celsius * 9 / 5) + 32;
+        else if (to === "Kelvin") return celsius + 273.15;
     }
 });
-
