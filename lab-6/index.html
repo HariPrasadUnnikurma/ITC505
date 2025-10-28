@@ -1,0 +1,53 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById('converterForm');
+    const resultDiv = document.getElementById('result');
+    const lastModifiedSpan = document.getElementById('lastModified');
+
+    // Show last modified date
+    lastModifiedSpan.textContent = document.lastModified;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const tempValue = parseFloat(document.getElementById('temperatureInput').value);
+        const fromUnit = document.getElementById('inputUnit').value;
+        const toUnit = document.getElementById('outputUnit').value;
+
+        if (isNaN(tempValue)) {
+            resultDiv.textContent = "Please enter a valid number.";
+            return;
+        }
+
+        const result = convertTemperature(tempValue, fromUnit, toUnit);
+        resultDiv.textContent = `Converted Temperature: ${result.toFixed(2)} ${toUnit}`;
+    });
+
+    function convertTemperature(value, from, to) {
+        if (from === to) return value;
+
+        let celsius;
+
+        // Convert input to Celsius
+        switch (from) {
+            case "Celsius":
+                celsius = value;
+                break;
+            case "Fahrenheit":
+                celsius = (value - 32) * 5 / 9;
+                break;
+            case "Kelvin":
+                celsius = value - 273.15;
+                break;
+        }
+
+        // Convert Celsius to target
+        switch (to) {
+            case "Celsius":
+                return celsius;
+            case "Fahrenheit":
+                return (celsius * 9 / 5) + 32;
+            case "Kelvin":
+                return celsius + 273.15;
+        }
+    }
+});
