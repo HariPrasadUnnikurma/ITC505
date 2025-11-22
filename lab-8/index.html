@@ -1,1 +1,47 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - Hari Prasad Unnikurma</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&family=Open+Sans&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+    //body of the code
+<body>
+    <div class="container">
+        <h1>Hari Form Validations</h1>
+        <form onsubmit="validateForm(event)">
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" id="First-Name" onkeyup="validateFirstName()"> 
+                <span id="firstname-error"></span>
+            </div>
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" id="Last-Name" onkeyup="validateLastName()">
+                <span id="lastname-error"></span>
+            </div>
+            <div class="input-group">
+                <label>Email Id</label>
+                <input type="email" placeholder="Email Id" id="EmailId" onkeyup="validateEmailId()">
+                <span id="Emailid-error"></span>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Password" id="Password" onkeyup="validatePassword()">
+                <span id="Password-error"></span>
+            </div>
+            <div class="input-group">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" id="Confirm-Password" onkeyup="validateConfirmPassword()">
+                <span id="ConfirmPassword-error"></span>
+            </div>
+            <button>Submit</button>
+            <span id="success-message"></span>
+            <span id="submit-error"></span>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script src="xssPrevention.js"></script>
+</body>
+</html>
